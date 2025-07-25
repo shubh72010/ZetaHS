@@ -29,7 +29,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Crucial for consistent sizing */
     will-change: transform, opacity, filter;
 }
 
@@ -39,7 +39,7 @@ body {
     background: var(--dark-bg);
     background-attachment: fixed;
     line-height: 1.7;
-    overflow-x: hidden; /* Ensure no horizontal scrollbar from overflowing elements */
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
     scroll-behavior: smooth;
 
     background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.03) 1.5px, transparent 0);
@@ -190,7 +190,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    padding: 15px var(--spacing-unit); /* Keep padding consistent */
+    /* Remove padding from header directly here */
     box-shadow: 0 2px 10px var(--glass-shadow);
 }
 
@@ -198,11 +198,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1280px;
-    margin: 0 auto;
+    max-width: 1280px; /* Still apply max-width for large screens */
+    margin: 0 auto; /* Center nav on large screens */
     position: relative;
-    /* Ensure nav doesn't overflow its parent on small screens due to padding */
-    width: calc(100% - (2 * var(--spacing-unit))); /* Account for header's horizontal padding */
+    /* Move the horizontal padding from header to nav */
+    padding: 15px var(--spacing-unit); /* Apply consistent padding here */
+    width: 100%; /* Ensure it takes full width of its container (header) */
 }
 
 .logo {
@@ -250,7 +251,7 @@ nav {
     cursor: pointer;
     padding: 0;
     z-index: 1001;
-    /* No absolute positioning here, it should be part of the flex layout of nav */
+    /* No absolute positioning or margins needed here, flexbox handles it */
 }
 
 .hamburger .bar {
@@ -458,33 +459,33 @@ footer {
 
 /* Responsive Design for Hamburger Menu */
 @media (max-width: 768px) {
-    /* Adjust header padding to make sure content doesn't get cut off */
     header {
-        padding: 15px var(--spacing-unit); /* Reconfirm this padding */
+        /* Remove horizontal padding from header itself */
+        padding: 15px 0;
     }
 
     nav {
-        /* Ensure nav itself is not overflowing its parent */
-        width: 100%; /* Take full width of header's padding */
-        padding: 0 var(--spacing-unit); /* Add padding here to align content with main sections */
-        max-width: none; /* Remove max-width for smaller screens */
-        margin: 0; /* Remove auto margin to avoid pushing */
+        /* Apply the horizontal padding directly to nav */
+        padding: 0 var(--spacing-unit); /* This effectively sets the 'inner' padding */
+        width: 100%; /* Make sure nav takes full width of header */
+        max-width: none; /* Override desktop max-width */
+        margin: 0 auto; /* Keep it centered, but padding ensures inner alignment */
     }
 
     nav ul {
-        /* This is the menu that slides in/out */
         display: none;
         flex-direction: column;
         width: 100%;
-        position: absolute; /* Position relative to `nav` */
+        position: absolute;
         top: 100%;
         left: 0;
+        /* Inherit nav's padding for menu items if desired, or set specific padding */
         background: var(--glass-bg);
         backdrop-filter: blur(var(--blur-strength));
         -webkit-backdrop-filter: blur(var(--blur-strength));
         border-top: 1px solid var(--glass-border);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        padding: 20px 0;
+        padding: 20px 0; /* Vertical padding for menu items */
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;
         transform: translateY(-100%);
         opacity: 0;
@@ -515,11 +516,8 @@ footer {
 
     .hamburger {
         display: flex;
-        /* Position it correctly within the flex container (nav) */
-        margin-left: auto; /* Push it to the right if needed, though justify-content: space-between should handle this */
     }
 
-    /* General responsive adjustments */
     h1 {
         font-size: 3.2em;
     }
