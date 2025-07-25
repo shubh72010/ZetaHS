@@ -1,5 +1,6 @@
 /* Basic Resets & Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); /* Using Inter for a modern, clean look */
+/* Using 'Outfit' as a modern, clean font, similar to Nothing.tech */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
     --primary-color: #00e6e6; /* A subtle, modern cyan/aqua for highlights */
@@ -27,13 +28,13 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif; /* Applied Inter font */
+    font-family: 'Outfit', sans-serif; /* Applied Outfit font here */
     color: var(--light-text);
-    background: var(--dark-bg); /* Solid dark background for simplicity */
+    background: var(--dark-bg);
     background-attachment: fixed;
     line-height: 1.6;
     overflow-x: hidden;
-    scroll-behavior: smooth; /* Smooth scrolling for nav links */
+    scroll-behavior: smooth;
 }
 
 a {
@@ -48,22 +49,22 @@ a:hover {
 }
 
 section {
-    padding: 80px var(--spacing-unit); /* Using spacing unit */
+    padding: 80px var(--spacing-unit);
     text-align: center;
     position: relative;
     z-index: 1;
-    max-width: 1200px; /* Center content within max width */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 h1, h2, h3 {
-    color: var(--secondary-color); /* Headings slightly brighter */
+    color: var(--secondary-color);
     margin-bottom: var(--spacing-unit);
-    font-weight: 600; /* Consistent font-weight for headings */
+    font-weight: 600;
 }
 
 h1 {
-    font-size: 3.8em; /* Slightly larger for impact */
+    font-size: 3.8em;
     font-weight: 700;
     line-height: 1.1;
 }
@@ -80,21 +81,21 @@ p {
     margin-bottom: var(--spacing-unit);
     font-size: 1.1em;
     color: var(--light-text);
-    max-width: 800px; /* Constrain paragraph width for readability */
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .btn-primary, .btn-secondary {
     display: inline-block;
-    padding: 14px 28px; /* Slightly less padding */
+    padding: 14px 28px;
     border-radius: var(--border-radius-md);
-    font-weight: 500; /* Lighter font weight for buttons */
+    font-weight: 500;
     text-transform: uppercase;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     border: none;
     cursor: pointer;
-    letter-spacing: 0.8px; /* More prominent letter spacing */
+    letter-spacing: 0.8px;
     font-size: 1em;
 }
 
@@ -106,12 +107,12 @@ p {
 .btn-primary:hover {
     background-color: var(--primary-color);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 230, 230, 0.3); /* Subtle glow on hover */
+    box-shadow: 0 5px 15px rgba(0, 230, 230, 0.3);
 }
 
 .btn-secondary {
     background: none;
-    border: 1px solid var(--primary-color); /* Thinner border */
+    border: 1px solid var(--primary-color);
     color: var(--primary-color);
 }
 
@@ -126,7 +127,7 @@ p {
 .frosted-glass {
     background: var(--glass-bg);
     border-radius: var(--border-radius-lg);
-    box-shadow: 0 2px 10px var(--glass-shadow); /* Softer shadow */
+    box-shadow: 0 2px 10px var(--glass-shadow);
     backdrop-filter: blur(var(--blur-strength));
     -webkit-backdrop-filter: blur(var(--blur-strength));
     border: 1px solid var(--glass-border);
@@ -156,7 +157,7 @@ nav {
 }
 
 .logo {
-    font-size: 1.6em; /* Slightly smaller logo */
+    font-size: 1.6em;
     font-weight: 700;
     color: var(--primary-color);
     letter-spacing: 1px;
@@ -168,7 +169,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 2.5 * var(--spacing-unit); /* More spacing between nav items */
+    margin-left: 2.5 * var(--spacing-unit);
 }
 
 nav ul li a {
@@ -180,7 +181,7 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--primary-color);
-    transform: translateY(-1px); /* Subtle lift */
+    transform: translateY(-1px);
 }
 
 /* Hero Section */
@@ -191,37 +192,36 @@ nav ul li a:hover {
     align-items: center;
     text-align: center;
     padding-top: 80px;
-    background: var(--dark-bg); /* Ensure hero background is dark-bg for minimalist feel */
+    background: var(--dark-bg);
     position: relative;
-    /* No overlay, let the glass effect handle readability */
 }
 
 .hero-content {
-    max-width: 900px; /* Wider hero content */
-    padding: 60px; /* More padding */
+    max-width: 900px;
+    padding: 60px;
     background: var(--glass-bg);
     border-radius: var(--border-radius-lg);
-    box-shadow: 0 5px 30px var(--glass-shadow); /* Softer, broader shadow */
+    box-shadow: 0 5px 30px var(--glass-shadow);
     backdrop-filter: blur(var(--blur-strength) * 1.5);
     -webkit-backdrop-filter: blur(var(--blur-strength) * 1.5);
     border: 1px solid var(--glass-border);
 }
 
 .hero-content h1 {
-    font-size: 4.5em; /* Larger, more impactful heading */
+    font-size: 4.5em;
     margin-bottom: 25px;
-    text-shadow: none; /* Remove text shadow for cleaner look */
+    text-shadow: none;
 }
 
 .hero-content p {
-    font-size: 1.4em; /* Larger, more readable paragraph */
+    font-size: 1.4em;
     margin-bottom: 40px;
-    opacity: 0.85; /* Slight opacity for subtlety */
+    opacity: 0.85;
 }
 
 /* About Section */
 .about-section {
-    background-color: var(--mid-dark-bg); /* Slightly different dark for visual separation */
+    background-color: var(--mid-dark-bg);
     padding: 60px var(--spacing-unit);
 }
 
@@ -236,13 +236,13 @@ nav ul li a:hover {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding: 30px;
-    border: none; /* Remove item border, let glass handle it */
-    box-shadow: none; /* Remove default shadow, frosted-glass adds its own */
+    border: none;
+    box-shadow: none;
 }
 
 .about-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px var(--glass-shadow); /* Add shadow on hover for interaction */
+    box-shadow: 0 8px 20px var(--glass-shadow);
 }
 
 .about-item h3 {
@@ -257,14 +257,14 @@ nav ul li a:hover {
 
 /* Showcase & Chats Sections */
 .showcase-section, .chats-section {
-    background: var(--dark-bg); /* Keep it consistent with main background */
+    background: var(--dark-bg);
     padding: 80px var(--spacing-unit);
     color: var(--light-text);
 }
 
 .showcase-section h2, .chats-section h2 {
     color: var(--secondary-color);
-    margin-bottom: 10px; /* Less space between heading and sub-text */
+    margin-bottom: 10px;
 }
 
 .showcase-section p, .chats-section p {
@@ -273,36 +273,59 @@ nav ul li a:hover {
     margin-bottom: 40px;
 }
 
-.showcase-gallery, .chat-screenshots {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px; /* Reduced gap for a tighter grid */
+/* New Scrollable Image Containers */
+.showcase-scroll-container,
+.chats-scroll-container {
+    display: flex; /* Arrange images in a row */
+    overflow-x: auto; /* Enable horizontal scrolling if images exceed width */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    scroll-snap-type: x mandatory; /* Snap to images horizontally */
+    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+    gap: var(--spacing-unit); /* Gap between images */
+    padding: var(--spacing-unit) 0; /* Padding above/below images */
     margin-top: 40px;
-    justify-content: center;
-    align-items: stretch;
+    max-width: 100%; /* Ensure it fits within section */
+    justify-content: flex-start; /* Align items to the start */
+    border-radius: var(--border-radius-lg);
+    background: rgba(255, 255, 255, 0.03); /* Very subtle background for the scroll area */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 20px var(--glass-shadow); /* A bit more pronounced shadow for the scroll container */
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera */
+.showcase-scroll-container::-webkit-scrollbar,
+.chats-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.showcase-scroll-container,
+.chats-scroll-container {
+    scrollbar-width: none;
 }
 
 .gallery-item, .chat-item {
-    width: 100%;
-    height: 280px; /* Slightly taller images for better visibility */
+    flex: 0 0 300px; /* Fixed width for each image, prevents shrinking */
+    height: 400px; /* Taller images for vertical scroll feel */
     object-fit: cover;
     border-radius: var(--border-radius-md);
-    background: rgba(255, 255, 255, 0.03); /* Even more subtle image background */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Very faint border */
-    box-shadow: 0 2px 8px var(--glass-shadow); /* Softer shadow for images */
-    backdrop-filter: blur(4px); /* Very light blur for images */
+    scroll-snap-align: center; /* Snap images to the center when scrolling */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 2px 8px var(--glass-shadow);
+    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-item:hover, .chat-item:hover {
-    transform: scale(1.02); /* Less aggressive scale on hover */
-    box-shadow: 0 5px 20px rgba(0, 230, 230, 0.2); /* Subtle primary color glow */
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(0, 230, 230, 0.2);
 }
 
 /* Join Us Section */
 .join-us-section {
-    background-color: var(--mid-dark-bg); /* Consistent with about section */
+    background-color: var(--mid-dark-bg);
     padding: 80px var(--spacing-unit);
 }
 
@@ -318,7 +341,7 @@ footer {
     padding: var(--spacing-unit);
     text-align: center;
     font-size: 0.9em;
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Very subtle top border */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Responsive Design */
@@ -354,8 +377,10 @@ footer {
         font-size: 1.2em;
     }
 
+    /* Adjust image size for smaller screens */
     .gallery-item, .chat-item {
-        height: 220px;
+        flex: 0 0 250px; /* Smaller width for images */
+        height: 350px; /* Adjust height proportionally */
     }
 }
 
@@ -384,6 +409,7 @@ footer {
     }
 
     .gallery-item, .chat-item {
-        height: 180px;
+        flex: 0 0 200px; /* Even smaller on tiny screens */
+        height: 300px;
     }
 }
