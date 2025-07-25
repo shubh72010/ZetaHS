@@ -23,7 +23,7 @@
 
     --border-radius-lg: 10px; /* Consistent, clean radius */
     --border-radius-md: 6px;
-    --spacing-unit: 28px; /* Generous spacing */
+    --spacing-unit: 24px; /* Slightly reduced base spacing unit */
 }
 
 * {
@@ -59,7 +59,7 @@ a:hover {
 }
 
 section {
-    padding: 120px var(--spacing-unit);
+    padding: 100px var(--spacing-unit); /* Slightly reduced vertical padding */
     text-align: center;
     position: relative;
     z-index: 1;
@@ -70,7 +70,7 @@ section {
 h1, h2, h3 {
     font-family: 'Share Tech Mono', monospace;
     color: var(--secondary-color);
-    margin-bottom: calc(var(--spacing-unit) / 1.5);
+    margin-bottom: calc(var(--spacing-unit) / 2); /* Reduced margin below headings */
     font-weight: 500;
     letter-spacing: 1.5px;
     text-shadow: 0 0 5px rgba(0, 230, 230, 0.1);
@@ -105,7 +105,7 @@ p {
 
 .btn-primary, .btn-secondary {
     display: inline-block;
-    padding: 18px 36px;
+    padding: 16px 32px; /* Slightly reduced button padding */
     border-radius: var(--border-radius-md);
     font-weight: 500;
     text-transform: uppercase;
@@ -113,7 +113,7 @@ p {
     border: none;
     cursor: pointer;
     letter-spacing: 1.2px;
-    font-size: 1.1em;
+    font-size: 1.05em; /* Slightly smaller font for tighter fit */
     font-family: 'Share Tech Mono', monospace;
     position: relative;
     overflow: hidden;
@@ -190,7 +190,7 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    /* Remove padding from header directly here */
+    padding: 15px 0; /* Header's main vertical padding */
     box-shadow: 0 2px 10px var(--glass-shadow);
 }
 
@@ -198,12 +198,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1280px; /* Still apply max-width for large screens */
-    margin: 0 auto; /* Center nav on large screens */
+    max-width: 1280px;
+    margin: 0 auto;
     position: relative;
-    /* Move the horizontal padding from header to nav */
-    padding: 15px var(--spacing-unit); /* Apply consistent padding here */
-    width: 100%; /* Ensure it takes full width of its container (header) */
+    padding: 0 var(--spacing-unit); /* Nav's horizontal padding */
+    width: 100%;
 }
 
 .logo {
@@ -221,7 +220,7 @@ nav {
 }
 
 .nav-links ul li {
-    margin-left: calc(var(--spacing-unit) * 1.8);
+    margin-left: calc(var(--spacing-unit) * 1.5); /* Slightly reduced nav link spacing */
 }
 
 .nav-links ul li a {
@@ -251,7 +250,6 @@ nav {
     cursor: pointer;
     padding: 0;
     z-index: 1001;
-    /* No absolute positioning or margins needed here, flexbox handles it */
 }
 
 .hamburger .bar {
@@ -280,15 +278,15 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 80px;
+    padding-top: 80px; /* Account for fixed header height */
     background: transparent;
     position: relative;
     overflow: hidden;
 }
 
 .hero-content {
-    max-width: 950px;
-    padding: calc(var(--spacing-unit) * 2.5);
+    max-width: 900px; /* Slightly reduced max-width for tighter feel */
+    padding: calc(var(--spacing-unit) * 2); /* Reduced padding */
     background: var(--glass-bg);
     border-radius: var(--border-radius-lg);
     box-shadow: 0 8px 40px var(--glass-shadow);
@@ -316,15 +314,15 @@ nav {
 /* About Section */
 .about-section {
     background-color: var(--mid-dark-bg);
-    padding: 120px var(--spacing-unit);
+    padding: 80px var(--spacing-unit); /* Reduced vertical padding */
     box-shadow: inset 0 10px 20px rgba(0,0,0,0.2), inset 0 -10px 20px rgba(0,0,0,0.2);
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-unit);
-    margin-top: calc(var(--spacing-unit) * 2.5);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width */
+    gap: var(--spacing-unit); /* Consistent gap */
+    margin-top: calc(var(--spacing-unit) * 2); /* Reduced margin-top */
 }
 
 .animate-on-scroll {
@@ -357,7 +355,7 @@ nav {
 
 .about-item h3 {
     color: var(--primary-color);
-    margin-bottom: 15px;
+    margin-bottom: 10px; /* Further reduced margin */
 }
 
 .about-item p {
@@ -368,7 +366,7 @@ nav {
 /* Showcase & Chats Sections */
 .showcase-section, .chats-section {
     background: transparent;
-    padding: 120px var(--spacing-unit);
+    padding: 80px var(--spacing-unit); /* Reduced vertical padding */
     color: var(--light-text);
 }
 
@@ -380,7 +378,7 @@ nav {
 .showcase-section p, .chats-section p {
     color: var(--subtle-text);
     font-size: 1.05em;
-    margin-bottom: calc(var(--spacing-unit) * 2.5);
+    margin-bottom: calc(var(--spacing-unit) * 1.5); /* Reduced margin */
 }
 
 .showcase-scroll-container,
@@ -390,9 +388,9 @@ nav {
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    gap: var(--spacing-unit);
+    gap: calc(var(--spacing-unit) * 0.8); /* Slightly tighter gap between images */
     padding: var(--spacing-unit) 0;
-    margin-top: var(--spacing-unit) * 2;
+    margin-top: var(--spacing-unit); /* Reduced margin-top */
     max-width: 100%;
     justify-content: flex-start;
     border-radius: var(--border-radius-lg);
@@ -415,8 +413,8 @@ nav {
 }
 
 .gallery-item, .chat-item {
-    flex: 0 0 340px;
-    height: 480px;
+    flex: 0 0 320px; /* Slightly smaller image width for better fit */
+    height: 450px; /* Slightly smaller image height */
     object-fit: cover;
     border-radius: var(--border-radius-md);
     scroll-snap-align: center;
@@ -436,13 +434,13 @@ nav {
 /* Join Us Section */
 .join-us-section {
     background-color: var(--mid-dark-bg);
-    padding: 120px var(--spacing-unit);
+    padding: 80px var(--spacing-unit); /* Reduced vertical padding */
     box-shadow: inset 0 10px 20px rgba(0,0,0,0.2), inset 0 -10px 20px rgba(0,0,0,0.2);
 }
 
 .join-us-section p {
-    font-size: 1.25em;
-    margin-bottom: calc(var(--spacing-unit) * 1.8);
+    font-size: 1.2em; /* Slightly smaller */
+    margin-bottom: calc(var(--spacing-unit) * 1.2); /* Reduced margin */
 }
 
 /* Footer */
@@ -460,58 +458,26 @@ footer {
 /* Responsive Design for Hamburger Menu */
 @media (max-width: 768px) {
     header {
-        /* Remove horizontal padding from header itself */
         padding: 15px 0;
     }
 
     nav {
-        /* Apply the horizontal padding directly to nav */
-        padding: 0 var(--spacing-unit); /* This effectively sets the 'inner' padding */
-        width: 100%; /* Make sure nav takes full width of header */
-        max-width: none; /* Override desktop max-width */
-        margin: 0 auto; /* Keep it centered, but padding ensures inner alignment */
+        padding: 0 var(--spacing-unit);
+        width: 100%;
+        max-width: none;
+        margin: 0 auto;
     }
 
     nav ul {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        /* Inherit nav's padding for menu items if desired, or set specific padding */
-        background: var(--glass-bg);
-        backdrop-filter: blur(var(--blur-strength));
-        -webkit-backdrop-filter: blur(var(--blur-strength));
-        border-top: 1px solid var(--glass-border);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        padding: 20px 0; /* Vertical padding for menu items */
-        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
+        padding: 15px 0; /* Slightly reduced vertical padding for mobile menu */
     }
 
     nav ul li {
-        margin: 10px 0;
+        margin: 8px 0; /* Slightly reduced margin for mobile menu items */
     }
 
     nav ul li a {
-        padding: 10px 20px;
-        display: block;
-        text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    nav ul li:last-child a {
-        border-bottom: none;
-    }
-
-    .nav-links.active ul {
-        display: flex;
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
+        padding: 8px 15px; /* Slightly reduced padding for mobile menu links */
     }
 
     .hamburger {
@@ -519,57 +485,61 @@ footer {
     }
 
     h1 {
-        font-size: 3.2em;
+        font-size: 2.8em; /* Adjusted for smaller screens */
     }
 
     h2 {
-        font-size: 2.4em;
+        font-size: 2.2em; /* Adjusted */
     }
 
     section {
-        padding: 100px var(--spacing-unit);
+        padding: 60px var(--spacing-unit); /* Reduced section padding on mobile */
     }
 
     .hero-content {
-        padding: var(--spacing-unit) * 1.5;
+        padding: var(--spacing-unit); /* Reduced padding */
     }
 
     .hero-content p {
-        font-size: 1.1em;
+        font-size: 1em; /* Slightly smaller on mobile */
+    }
+
+    .about-grid {
+        gap: calc(var(--spacing-unit) * 0.8); /* Tighter gap on mobile */
     }
 
     .gallery-item, .chat-item {
-        flex: 0 0 300px;
-        height: 420px;
+        flex: 0 0 280px; /* Adjusted for smaller screens */
+        height: 400px; /* Adjusted */
     }
 }
 
 @media (max-width: 480px) {
     section {
-        padding: 80px 15px;
+        padding: 50px 15px; /* Further reduced padding */
     }
 
     h1 {
-        font-size: 2.5em;
-    }
-    h2 {
         font-size: 2em;
     }
+    h2 {
+        font-size: 1.8em;
+    }
     h3 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 
     .hero-content {
-        padding: var(--spacing-unit);
+        padding: calc(var(--spacing-unit) * 0.8);
     }
 
     .btn-primary, .btn-secondary {
-        padding: 14px 28px;
-        font-size: 1em;
+        padding: 12px 24px;
+        font-size: 0.9em;
     }
 
     .gallery-item, .chat-item {
-        flex: 0 0 260px;
-        height: 380px;
+        flex: 0 0 240px;
+        height: 350px;
     }
 }
