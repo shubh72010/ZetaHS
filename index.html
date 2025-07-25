@@ -1,384 +1,86 @@
-/* Basic Resets & Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Server Name - Tech Customization Community</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Your Server Name</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#showcase">Showcase</a></li>
+                <li><a href="#chats">Server Chats</a></li>
+                <li><a href="#join">Join Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-:root {
-    --primary-color: #00bcd4; /* A techy teal/cyan */
-    --secondary-color: #ff4081; /* A vibrant accent */
-    --dark-bg: #1a1a2e; /* Dark background */
-    --light-text: #e0e0e0; /* Light text for dark backgrounds */
-    --glass-bg: rgba(255, 255, 255, 0.15); /* Semi-transparent white for glass */
-    --glass-border: rgba(255, 255, 255, 0.3); /* Lighter border for glass */
-    --glass-shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    --blur-strength: 15px; /* How strong the frosted effect is */
-    --border-radius-lg: 20px;
-    --border-radius-md: 10px;
-}
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Level Up Your Device's Look</h1>
+            <p>Discover, create, and share amazing homescreens, icons, and wallpapers with a vibrant community.</p>
+            <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" class="btn-primary">Join Our Discord Now!</a>
+        </div>
+    </section>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+    <section id="about" class="about-section">
+        <h2>What We Offer</h2>
+        <div class="about-grid">
+            <div class="about-item frosted-glass">
+                <h3>Custom Homescreens</h3>
+                <p>Get inspired by unique layouts and learn to craft your perfect mobile interface.</p>
+            </div>
+            <div class="about-item frosted-glass">
+                <h3>Icon Packs & Themes</h3>
+                <p>Find, share, and discuss the best icon packs to personalize your apps.</p>
+            </div>
+            <div class="about-item frosted-glass">
+                <h3>Stunning Wallpapers</h3>
+                <p>Access a vast collection of high-quality wallpapers for every style and device.</p>
+            </div>
+        </div>
+    </section>
 
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--light-text);
-    background: linear-gradient(135deg, #1f005c, #001a47, #1a1a2e); /* Gradient for depth */
-    background-attachment: fixed; /* Crucial for backdrop-filter to work effectively */
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
+    <section id="showcase" class="showcase-section">
+        <h2>Our Community's Creations</h2>
+        <p>A glimpse into the incredible customization shared by our members.</p>
+        <div class="showcase-gallery">
+            <img src="images/placeholder-creation1.jpg" alt="Customization Example 1" class="gallery-item">
+            <img src="images/placeholder-creation2.jpg" alt="Customization Example 2" class="gallery-item">
+            <img src="images/placeholder-creation3.jpg" alt="Customization Example 3" class="gallery-item">
+            <img src="images/placeholder-creation4.jpg" alt="Customization Example 4" class="gallery-item">
+            <img src="images/placeholder-creation5.jpg" alt="Customization Example 5" class="gallery-item">
+            <img src="images/placeholder-creation6.jpg" alt="Customization Example 6" class="gallery-item">
+        </div>
+    </section>
 
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+    <section id="chats" class="chats-section">
+        <h2>Live From Our Chats</h2>
+        <p>See what our members are discussing and how they help each other.</p>
+        <div class="chat-screenshots">
+            <img src="images/placeholder-chat1.jpg" alt="Discord Chat Screenshot 1" class="chat-item">
+            <img src="images/placeholder-chat2.jpg" alt="Discord Chat Screenshot 2" class="chat-item">
+            <img src="images/placeholder-chat3.jpg" alt="Discord Chat Screenshot 3" class="chat-item">
+            <img src="images/placeholder-chat4.jpg" alt="Discord Chat Screenshot 4" class="chat-item">
+            <img src="images/placeholder-chat5.jpg" alt="Discord Chat Screenshot 5" class="chat-item">
+            <img src="images/placeholder-chat6.jpg" alt="Discord Chat Screenshot 6" class="chat-item">
+        </div>
+        <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" class="btn-secondary">Join the Conversation!</a>
+    </section>
 
-a:hover {
-    color: var(--secondary-color);
-}
+    <section id="join" class="join-us-section">
+        <h2>Ready to Transform Your Device?</h2>
+        <p>Join a passionate community of customizers today!</p>
+        <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" class="btn-primary">Join Our Discord Server</a>
+    </section>
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-section {
-    padding: 80px 20px;
-    text-align: center;
-    position: relative;
-    z-index: 1; /* Ensure content is above potential background elements */
-}
-
-h1, h2, h3 {
-    color: var(--light-text);
-    margin-bottom: 20px;
-}
-
-h1 {
-    font-size: 3.5em;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 2.5em;
-    font-weight: 600;
-}
-
-h3 {
-    font-size: 1.8em;
-    font-weight: 600;
-}
-
-p {
-    margin-bottom: 20px;
-    font-size: 1.1em;
-}
-
-.btn-primary, .btn-secondary {
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: var(--border-radius-md);
-    font-weight: 600;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 0.5px;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--dark-bg);
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-}
-
-.btn-secondary {
-    background: none;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: var(--dark-bg);
-    transform: translateY(-3px);
-}
-
-/* Frosted Glass Base Style - Apply this to elements you want to be frosted */
-.frosted-glass {
-    background: var(--glass-bg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 30px var(--glass-shadow);
-    backdrop-filter: blur(var(--blur-strength));
-    -webkit-backdrop-filter: blur(var(--blur-strength)); /* For Safari compatibility */
-    border: 1px solid var(--glass-border);
-    padding: 30px;
-}
-
-/* Header & Navigation */
-header {
-    background: var(--glass-bg); /* Frosted header */
-    backdrop-filter: blur(var(--blur-strength));
-    -webkit-backdrop-filter: blur(var(--blur-strength));
-    border-bottom: 1px solid var(--glass-border);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    padding: 15px 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: var(--primary-color);
-    letter-spacing: 1px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-nav ul li {
-    margin-left: 30px;
-}
-
-nav ul li a {
-    color: var(--light-text);
-    font-weight: 500;
-    font-size: 1.1em;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-nav ul li a:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* Hero Section */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    padding-top: 80px; /* Account for fixed header */
-}
-
-.hero::before { /* Overlay to make text more readable */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: -1;
-}
-
-.hero-content {
-    max-width: 800px;
-    padding: 40px;
-    /* Apply frosted glass directly to hero content for a strong effect */
-    background: var(--glass-bg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 8px 60px var(--glass-shadow);
-    backdrop-filter: blur(var(--blur-strength) * 1.5); /* Stronger blur for hero */
-    -webkit-backdrop-filter: blur(var(--blur-strength) * 1.5);
-    border: 1px solid var(--glass-border);
-}
-
-.hero-content h1 {
-    font-size: 4em;
-    margin-bottom: 25px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hero-content p {
-    font-size: 1.3em;
-    margin-bottom: 40px;
-    opacity: 0.9;
-}
-
-/* About Section */
-.about-section {
-    background-color: var(--dark-bg); /* A slightly darker section to contrast */
-    padding: 60px 20px;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.about-item {
-    padding: 30px;
-    border-radius: var(--border-radius-lg);
-    text-align: center;
-    /* Frosted effect on each about item */
-    background: var(--glass-bg);
-    box-shadow: 0 4px 20px var(--glass-shadow);
-    backdrop-filter: blur(var(--blur-strength));
-    -webkit-backdrop-filter: blur(var(--blur-strength));
-    border: 1px solid var(--glass-border);
-    transition: transform 0.3s ease;
-}
-
-.about-item:hover {
-    transform: translateY(-5px);
-}
-
-.about-item h3 {
-    color: var(--primary-color);
-    margin-bottom: 15px;
-}
-
-.about-item p {
-    font-size: 1em;
-    opacity: 0.8;
-}
-
-/* Showcase Section - Community Creations */
-.showcase-section, .chats-section {
-    background: linear-gradient(135deg, #001a47, #1f005c); /* Subtle gradient for sections */
-    padding: 80px 20px;
-    color: var(--light-text);
-}
-
-.showcase-section h2, .chats-section h2 {
-    color: var(--primary-color);
-}
-
-.showcase-gallery, .chat-screenshots {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-    justify-content: center;
-    align-items: stretch;
-}
-
-.gallery-item, .chat-item {
-    width: 100%;
-    height: 250px; /* Fixed height for consistent layout */
-    object-fit: cover; /* Ensures images cover the area without distortion */
-    border-radius: var(--border-radius-md);
-    /* Frosted effect for the images too, for consistency */
-    background: var(--glass-bg); /* This will be visible if image isn't loaded */
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 4px 15px var(--glass-shadow);
-    backdrop-filter: blur(5px); /* Slightly less blur for images to keep detail */
-    -webkit-backdrop-filter: blur(5px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-item:hover, .chat-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px var(--secondary-color); /* Highlight on hover */
-}
-
-
-/* Join Us Section */
-.join-us-section {
-    background-color: var(--dark-bg);
-    padding: 80px 20px;
-}
-
-.join-us-section p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
-
-/* Footer */
-footer {
-    background: var(--dark-bg);
-    color: #a0a0a0;
-    padding: 20px;
-    text-align: center;
-    font-size: 0.9em;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav ul li {
-        margin: 0 10px 10px 0;
-    }
-
-    .hero-content h1 {
-        font-size: 2.8em;
-    }
-
-    .hero-content p {
-        font-size: 1em;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    h3 {
-        font-size: 1.5em;
-    }
-
-    .about-grid, .showcase-gallery, .chat-screenshots {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery-item, .chat-item {
-        height: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    section {
-        padding: 60px 15px;
-    }
-
-    .hero-content {
-        padding: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 2em;
-    }
-
-    .btn-primary, .btn-secondary {
-        padding: 12px 25px;
-        font-size: 0.9em;
-    }
-}
+    <footer>
+        <p>&copy; 2025 Your Server Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
