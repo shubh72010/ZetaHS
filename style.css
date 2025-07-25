@@ -1,6 +1,6 @@
 /* Basic Resets & Global Styles */
-/* Using 'Outfit' as a modern, clean font, similar to Nothing.tech */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+/* Share Tech Mono font for a distinct tech/retro feel */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 :root {
     --primary-color: #00e6e6; /* A subtle, modern cyan/aqua for highlights */
@@ -16,7 +16,7 @@
     --glass-shadow: rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
     --blur-strength: 10px; /* Reduced blur for subtlety */
 
-    --border-radius-lg: 12px; /* Slightly less rounded */
+    --border-radius-lg: 12px;
     --border-radius-md: 8px;
     --spacing-unit: 20px;
 }
@@ -28,7 +28,7 @@
 }
 
 body {
-    font-family: 'Outfit', sans-serif; /* Applied Outfit font here */
+    font-family: 'Share Tech Mono', monospace; /* Applied Share Tech Mono here */
     color: var(--light-text);
     background: var(--dark-bg);
     background-attachment: fixed;
@@ -60,7 +60,7 @@ section {
 h1, h2, h3 {
     color: var(--secondary-color);
     margin-bottom: var(--spacing-unit);
-    font-weight: 600;
+    font-weight: 600; /* Share Tech Mono is mono-spaced, so weights might not vary as much */
 }
 
 h1 {
@@ -154,6 +154,7 @@ nav {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative; /* Needed for absolute positioning of menu */
 }
 
 .logo {
@@ -163,26 +164,60 @@ nav {
     letter-spacing: 1px;
 }
 
-nav ul {
+.nav-links ul {
     list-style: none;
-    display: flex;
+    display: flex; /* For desktop, show in a row */
 }
 
-nav ul li {
+.nav-links ul li {
     margin-left: 2.5 * var(--spacing-unit);
 }
 
-nav ul li a {
+.nav-links ul li a {
     color: var(--light-text);
     font-weight: 500;
     font-size: 1em;
     transition: color 0.3s ease, transform 0.2s ease;
 }
 
-nav ul li a:hover {
+.nav-links ul li a:hover {
     color: var(--primary-color);
     transform: translateY(-1px);
 }
+
+/* Hamburger Menu Styling (Hidden by default on large screens) */
+.hamburger {
+    display: none; /* Hide on desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Above nav links when active */
+}
+
+.hamburger .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger animation to 'X' */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
 
 /* Hero Section */
 .hero {
@@ -273,23 +308,22 @@ nav ul li a:hover {
     margin-bottom: 40px;
 }
 
-/* New Scrollable Image Containers */
 .showcase-scroll-container,
 .chats-scroll-container {
-    display: flex; /* Arrange images in a row */
-    overflow-x: auto; /* Enable horizontal scrolling if images exceed width */
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    scroll-snap-type: x mandatory; /* Snap to images horizontally */
-    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
-    gap: var(--spacing-unit); /* Gap between images */
-    padding: var(--spacing-unit) 0; /* Padding above/below images */
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: var(--spacing-unit);
+    padding: var(--spacing-unit) 0;
     margin-top: 40px;
-    max-width: 100%; /* Ensure it fits within section */
-    justify-content: flex-start; /* Align items to the start */
+    max-width: 100%;
+    justify-content: flex-start;
     border-radius: var(--border-radius-lg);
-    background: rgba(255, 255, 255, 0.03); /* Very subtle background for the scroll area */
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 5px 20px var(--glass-shadow); /* A bit more pronounced shadow for the scroll container */
+    box-shadow: 0 5px 20px var(--glass-shadow);
 }
 
 /* Hide scrollbar for Chrome, Safari, Opera */
@@ -305,11 +339,11 @@ nav ul li a:hover {
 }
 
 .gallery-item, .chat-item {
-    flex: 0 0 300px; /* Fixed width for each image, prevents shrinking */
-    height: 400px; /* Taller images for vertical scroll feel */
+    flex: 0 0 300px;
+    height: 400px;
     object-fit: cover;
     border-radius: var(--border-radius-md);
-    scroll-snap-align: center; /* Snap images to the center when scrolling */
+    scroll-snap-align: center;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 2px 8px var(--glass-shadow);
@@ -344,23 +378,54 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Responsive Design */
+/* Responsive Design for Hamburger Menu */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     nav ul {
-        margin-top: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none; /* Hide desktop nav links by default on smaller screens */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        background: var(--glass-bg); /* Match header's frosted background */
+        backdrop-filter: blur(var(--blur-strength));
+        -webkit-backdrop-filter: blur(var(--blur-strength));
+        border-top: 1px solid var(--glass-border);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        padding: 20px 0;
+        transition: transform 0.3s ease-out;
+        transform: translateY(-100%); /* Start off-screen above */
+        opacity: 0;
+        pointer-events: none; /* Disable interaction when hidden */
     }
 
     nav ul li {
-        margin: 0 10px 10px 0;
+        margin: 10px 0; /* Stack vertically */
     }
 
+    nav ul li a {
+        padding: 10px 20px;
+        display: block; /* Make links full width of their container */
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .nav-links.active ul {
+        display: flex; /* Show when active */
+        transform: translateY(0); /* Slide into view */
+        opacity: 1;
+        pointer-events: auto; /* Enable interaction when active */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger button on smaller screens */
+    }
+
+    /* General responsive adjustments (from previous versions, retained) */
     h1 {
         font-size: 3em;
     }
@@ -377,10 +442,9 @@ footer {
         font-size: 1.2em;
     }
 
-    /* Adjust image size for smaller screens */
     .gallery-item, .chat-item {
-        flex: 0 0 250px; /* Smaller width for images */
-        height: 350px; /* Adjust height proportionally */
+        flex: 0 0 250px;
+        height: 350px;
     }
 }
 
@@ -409,7 +473,7 @@ footer {
     }
 
     .gallery-item, .chat-item {
-        flex: 0 0 200px; /* Even smaller on tiny screens */
+        flex: 0 0 200px;
         height: 300px;
     }
 }
