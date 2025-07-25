@@ -6,20 +6,27 @@
     <title>Your Server Name - Tech Customization Community</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">Your Server Name</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#showcase">Showcase</a></li>
-                <li><a href="#chats">Server Chats</a></li>
-                <li><a href="#join">Join Us</a></li>
-            </ul>
+            <button class="hamburger" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#showcase">Showcase</a></li>
+                    <li><a href="#chats">Server Chats</a></li>
+                    <li><a href="#join">Join Us</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -89,5 +96,24 @@
     <footer>
         <p>&copy; 2025 Your Server Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        const navItems = document.querySelectorAll(".nav-links ul li a");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            hamburger.classList.toggle("active"); // Toggle active class on hamburger for animation
+        });
+
+        // Close menu when a link is clicked (for smooth scrolling)
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+                hamburger.classList.remove("active");
+            });
+        });
+    </script>
 </body>
 </html>
