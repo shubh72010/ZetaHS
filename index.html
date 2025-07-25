@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -82,7 +83,7 @@
             <img src="images/placeholder-chat5.jpg" alt="Discord Chat Screenshot 5" class="chat-item">
             <img src="images/placeholder-chat6.jpg" alt="Discord Chat Screenshot 6" class="chat-item">
             <img src="images/placeholder-chat7.jpg" alt="Discord Chat Screenshot 7" class="chat-item">
-            <img src="images/placeholder-chat8.jpg" alt="Discord Chat Screenshot 8" class="chat-item">
+            <img src="images/placeholder-creation8.jpg" alt="Discord Chat Screenshot 8" class="chat-item">
         </div>
         <a href="YOUR_DISCORD_INVITE_LINK" target="_blank" class="btn-secondary animate-on-scroll delay-2">Join the Conversation!</a>
     </section>
@@ -129,7 +130,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
-                    observer.unobserve(entry.target); // Stop observing once animated
+                    observer.unobserve(entry.target);
                 }
             });
         };
@@ -145,7 +146,7 @@
         fadeInElements.forEach((el, index) => {
             setTimeout(() => {
                 el.classList.add("visible");
-            }, 100 + (index * 150)); // Stagger the fade-in
+            }, 100 + (index * 150));
         });
     </script>
 </body>
