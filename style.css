@@ -1,5 +1,4 @@
 /* Basic Resets & Global Styles */
-/* Share Tech Mono font for headings/logo, Outfit for body for readability */
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
@@ -17,6 +16,12 @@
     --glass-border: rgba(255, 255, 255, 0.08); /* Faint border */
     --glass-shadow: rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
     --blur-strength: 8px; /* Reduced blur for subtlety */
+
+    /* NEW: Specific frosted properties for mobile nav if needed */
+    --mobile-nav-glass-bg: rgba(255, 255, 255, 0.05); /* Slightly more opaque */
+    --mobile-nav-blur-strength: 12px; /* Stronger blur */
+    --mobile-nav-glass-shadow: rgba(0, 0, 0, 0.5); /* Deeper shadow */
+
 
     --border-radius-lg: 8px; /* Sharper corners */
     --border-radius-md: 4px;
@@ -37,11 +42,9 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    /* --- DOTTED BACKGROUND APPLIED HERE --- */
     background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.03) 1.5px, transparent 0);
     background-size: 15px 15px; /* Larger dots, more spaced out */
     background-position: center center;
-    /* --- END DOTTED BACKGROUND --- */
 }
 
 a {
@@ -243,7 +246,6 @@ nav {
     align-items: center;
     text-align: center;
     padding-top: 80px;
-    /* Ensure hero background is transparent to show body's dotted background */
     background: transparent; /* Changed from var(--dark-bg) */
     position: relative;
     overflow: hidden;
@@ -334,7 +336,6 @@ nav {
 
 /* Showcase & Chats Sections */
 .showcase-section, .chats-section {
-    /* Ensure these sections are transparent to show the body's dotted background */
     background: transparent; /* Changed from var(--dark-bg) */
     padding: 100px var(--spacing-unit); /* More vertical padding */
     color: var(--light-text);
@@ -430,16 +431,19 @@ footer {
         position: absolute;
         top: 100%;
         left: 0;
-        background: var(--glass-bg);
-        backdrop-filter: blur(var(--blur-strength));
-        -webkit-backdrop-filter: blur(var(--blur-strength));
+        /* --- FROSTED BACKGROUND ADJUSTMENTS FOR MOBILE NAV --- */
+        background: var(--mobile-nav-glass-bg); /* Use the new more opaque variable */
+        backdrop-filter: blur(var(--mobile-nav-blur-strength)); /* Use the stronger blur variable */
+        -webkit-backdrop-filter: blur(var(--mobile-nav-blur-strength));
         border-top: 1px solid var(--glass-border);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 5px 15px var(--mobile-nav-glass-shadow); /* Use deeper shadow */
+        /* --- END FROSTED BACKGROUND ADJUSTMENTS --- */
         padding: 20px 0;
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;
         transform: translateY(-100%);
         opacity: 0;
         pointer-events: none;
+        z-index: 999;
     }
 
     nav ul li {
