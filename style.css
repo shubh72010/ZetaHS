@@ -5,28 +5,34 @@
 
 
 :root {
-    --primary-color: #00cccc; /* Slightly muted cyan for a techy but less vibrant highlight */
+    --primary-color: #00e6e6; /* Bright cyan, like a circuit glow */
     --secondary-color: #f8f8f8; /* Near white for main text and key elements */
-    --dark-bg: #0d0d0d; /* Even darker, almost black background */
-    --mid-dark-bg: #1a1a1a; /* Slightly lighter dark for contrast sections */
-    --light-text: #e0e0e0; /* Default text color, slightly off-white */
-    --subtle-text: #999999; /* For secondary text/footer, very muted */
+    --dark-bg: #0a0a0a; /* Even darker, almost pure black */
+    --mid-dark-bg: #141414; /* Slightly lighter dark for contrast sections */
+    --light-text: #e6e6e6; /* Default text color, slightly off-white */
+    --subtle-text: #888888; /* For secondary text/footer, very muted */
 
-    /* Frosted Glass Properties - even more subtle */
-    --glass-bg: rgba(255, 255, 255, 0.03); /* Barely visible transparency */
-    --glass-border: rgba(255, 255, 255, 0.08); /* Faint border */
-    --glass-shadow: rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
-    --blur-strength: 8px; /* Reduced blur for subtlety */
+    /* Frosted Glass Properties - ethereal and minimal */
+    --glass-bg: rgba(255, 255, 255, 0.02); /* Very faint transparency */
+    --glass-border: rgba(255, 255, 255, 0.06); /* Thin, subtle border */
+    --glass-shadow: rgba(0, 0, 0, 0.4); /* Deeper shadow for floating effect */
+    --blur-strength: 6px; /* Reduced blur for crispness */
 
-    --border-radius-lg: 8px; /* Sharper corners */
-    --border-radius-md: 4px;
-    --spacing-unit: 24px; /* Slightly more generous spacing */
+    /* Glow Effect Variables */
+    --glow-color: rgba(0, 230, 230, 0.6); /* Vibrant glow color */
+    --glow-spread: 25px; /* How far the glow spreads */
+
+    --border-radius-lg: 10px; /* Consistent, clean radius */
+    --border-radius-md: 6px;
+    --spacing-unit: 28px; /* Generous spacing */
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Optimize for smooth animations on GPU */
+    will-change: transform, opacity, filter;
 }
 
 body {
@@ -34,12 +40,14 @@ body {
     color: var(--light-text);
     background: var(--dark-bg);
     background-attachment: fixed;
-    line-height: 1.6;
+    line-height: 1.7; /* Increased for better readability */
     overflow-x: hidden;
     scroll-behavior: smooth;
-    /* Optional: Subtle background pattern for more techy feel */
-    /* background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0); */
-    /* background-size: 8px 8px; */
+
+    /* ASTONISHING: Minimal Dotted Background */
+    background-image: radial-gradient(circle at 1.5px 1.5px, rgba(255,255,255,0.03) 1.5px, transparent 0);
+    background-size: 15px 15px; /* Larger dots, more spaced out */
+    background-position: center center;
 }
 
 a {
@@ -54,96 +62,127 @@ a:hover {
 }
 
 section {
-    padding: 100px var(--spacing-unit); /* More vertical padding */
+    padding: 120px var(--spacing-unit); /* Even more vertical padding */
     text-align: center;
     position: relative;
     z-index: 1;
-    max-width: 1200px;
+    max-width: 1280px; /* Slightly wider content area */
     margin: 0 auto;
 }
 
 h1, h2, h3 {
     font-family: 'Share Tech Mono', monospace; /* Headings use the tech font */
     color: var(--secondary-color);
-    margin-bottom: calc(var(--spacing-unit) / 1.5); /* Tighter spacing for headings */
-    font-weight: 500; /* Share Tech Mono often looks best with consistent weight */
-    letter-spacing: 1px; /* Emphasize tech font */
+    margin-bottom: calc(var(--spacing-unit) / 1.5);
+    font-weight: 500;
+    letter-spacing: 1.5px; /* More prominent letter spacing */
+    text-shadow: 0 0 5px rgba(0, 230, 230, 0.1); /* Subtle text glow */
 }
 
 h1 {
-    font-size: 4.2em; /* Larger, more impactful heading */
-    font-weight: 700; /* Can use bold if available for Share Tech Mono */
+    font-size: 4.8em; /* Even larger, more impactful heading */
+    font-weight: 700;
     line-height: 1.1;
-    text-transform: uppercase; /* More assertive */
+    text-transform: uppercase;
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 3.4em;
     text-transform: uppercase;
 }
 
 h3 {
-    font-size: 1.8em;
+    font-size: 2em;
     text-transform: uppercase;
 }
 
 p {
     margin-bottom: var(--spacing-unit);
-    font-size: 1.1em;
+    font-size: 1.15em; /* Slightly larger base text */
     color: var(--light-text);
-    max-width: 800px;
+    max-width: 850px; /* Wider paragraphs */
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.8; /* More comfortable line height */
+    line-height: 1.8;
 }
 
+/* Enhanced Button Transitions and Glow */
 .btn-primary, .btn-secondary {
     display: inline-block;
-    padding: 16px 32px; /* Slightly larger buttons */
+    padding: 18px 36px; /* Larger buttons */
     border-radius: var(--border-radius-md);
     font-weight: 500;
     text-transform: uppercase;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-out, box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: background-color 0.4s ease-in-out, transform 0.3s ease-out, box-shadow 0.4s ease-in-out, color 0.3s ease-in-out;
     border: none;
     cursor: pointer;
-    letter-spacing: 1px; /* More prominent letter spacing for buttons */
-    font-size: 1.05em;
-    font-family: 'Share Tech Mono', monospace; /* Buttons use tech font */
+    letter-spacing: 1.2px;
+    font-size: 1.1em;
+    font-family: 'Share Tech Mono', monospace;
+    position: relative; /* For pseudo-element glow */
+    overflow: hidden; /* Ensure glow stays within bounds */
+    z-index: 0;
+}
+
+/* Pseudo-element for inner glow */
+.btn-primary::before, .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--glow-color);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
+    z-index: -1;
+}
+
+.btn-primary:hover::before, .btn-secondary:hover::before {
+    width: 200%;
+    height: 200%;
+    opacity: 0.3; /* Subtle inner glow */
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--dark-bg);
+    box-shadow: 0 0 15px rgba(0, 230, 230, 0.2); /* Initial subtle glow */
 }
 
 .btn-primary:hover {
     background-color: var(--primary-color);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 204, 204, 0.4); /* Stronger, more focused glow */
+    transform: translateY(-6px); /* More dynamic lift */
+    box-shadow: 0 15px var(--glow-spread) var(--glow-color); /* Stronger, defined glow */
+    /* text-shadow: 0 0 8px var(--secondary-color); Subtle text pop */
 }
 
 .btn-secondary {
     background: none;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 230, 230, 0.1); /* Initial subtle glow */
 }
 
 .btn-secondary:hover {
     background-color: var(--primary-color);
     color: var(--dark-bg);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 204, 204, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 15px var(--glow-spread) var(--glow-color);
 }
 
-/* Frosted Glass Base Style - even more subtle */
+/* Frosted Glass Base Style - ethereal */
 .frosted-glass {
     background: var(--glass-bg);
     border-radius: var(--border-radius-lg);
-    box-shadow: 0 1px 5px var(--glass-shadow); /* Much softer shadow */
+    box-shadow: 0 2px 15px var(--glass-shadow); /* More depth */
     backdrop-filter: blur(var(--blur-strength));
     -webkit-backdrop-filter: blur(var(--blur-strength));
     border: 1px solid var(--glass-border);
     padding: var(--spacing-unit);
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out; /* Add transition for animation */
 }
 
 /* Header & Navigation */
@@ -158,23 +197,25 @@ header {
     left: 0;
     z-index: 1000;
     padding: 15px var(--spacing-unit);
+    box-shadow: 0 2px 10px var(--glass-shadow);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     position: relative;
 }
 
 .logo {
-    font-family: 'Share Tech Mono', monospace; /* Logo always uses tech font */
-    font-size: 1.8em;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2em; /* Larger logo */
     font-weight: 700;
     color: var(--primary-color);
-    letter-spacing: 2px; /* More spacing for logo */
+    letter-spacing: 2.5px; /* Even more spacing for logo */
+    text-shadow: 0 0 10px rgba(0, 230, 230, 0.3); /* Prominent glow for logo */
 }
 
 .nav-links ul {
@@ -183,21 +224,22 @@ nav {
 }
 
 .nav-links ul li {
-    margin-left: calc(var(--spacing-unit) * 1.5); /* Adjusted spacing */
+    margin-left: calc(var(--spacing-unit) * 1.8); /* Wider spacing */
 }
 
 .nav-links ul li a {
-    font-family: 'Share Tech Mono', monospace; /* Nav links use tech font */
+    font-family: 'Share Tech Mono', monospace;
     color: var(--light-text);
     font-weight: 500;
-    font-size: 1em;
+    font-size: 1.05em; /* Slightly larger nav links */
     transition: color 0.3s ease, transform 0.2s ease;
     text-transform: uppercase;
 }
 
 .nav-links ul li a:hover {
     color: var(--primary-color);
-    transform: translateY(-1px);
+    transform: translateY(-2px); /* More pronounced lift */
+    text-shadow: 0 0 8px rgba(0, 230, 230, 0.3); /* Nav link hover glow */
 }
 
 /* Hamburger Menu Styling */
@@ -205,8 +247,8 @@ nav {
     display: none;
     flex-direction: column;
     justify-content: space-around;
-    width: 30px;
-    height: 25px;
+    width: 32px; /* Slightly larger hamburger */
+    height: 28px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -223,13 +265,13 @@ nav {
 }
 
 .hamburger.active .bar:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
+    transform: translateY(12px) rotate(45deg); /* Adjusted for larger size */
 }
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 }
 .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
+    transform: translateY(-12px) rotate(-45deg); /* Adjusted for larger size */
 }
 
 
@@ -241,64 +283,66 @@ nav {
     align-items: center;
     text-align: center;
     padding-top: 80px;
-    background: var(--dark-bg);
+    background: transparent; /* Background now handled by body */
     position: relative;
     overflow: hidden;
 }
 
 .hero-content {
-    max-width: 900px;
-    padding: var(--spacing-unit) * 2; /* More padding */
+    max-width: 950px;
+    padding: calc(var(--spacing-unit) * 2.5); /* Even more padding */
     background: var(--glass-bg);
     border-radius: var(--border-radius-lg);
-    box-shadow: 0 5px 30px var(--glass-shadow);
-    backdrop-filter: blur(var(--blur-strength) * 1.5);
-    -webkit-backdrop-filter: blur(var(--blur-strength) * 1.5);
+    box-shadow: 0 8px 40px var(--glass-shadow); /* Deeper shadow */
+    backdrop-filter: blur(var(--blur-strength) * 2); /* More blur for hero */
+    -webkit-backdrop-filter: blur(var(--blur-strength) * 2);
     border: 1px solid var(--glass-border);
+    transform: translateZ(0); /* Force hardware acceleration */
 }
 
 /* Initial state for hero elements before animation */
 .animate-fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(30px) translateZ(0);
+    transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother cubic bezier */
 }
 
 /* Final state for hero elements after animation */
 .animate-fade-in.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
 }
 
 /* Delay for staggering hero elements */
-.animate-fade-in.delay-1 { transition-delay: 0.2s; }
-.animate-fade-in.delay-2 { transition-delay: 0.4s; }
+.animate-fade-in.delay-1 { transition-delay: 0.25s; }
+.animate-fade-in.delay-2 { transition-delay: 0.5s; }
 
 
 /* About Section */
 .about-section {
-    background-color: var(--mid-dark-bg);
-    padding: 100px var(--spacing-unit); /* More vertical padding */
+    background-color: var(--mid-dark-bg); /* Use mid-dark for a subtle contrast with dotted background */
+    padding: 120px var(--spacing-unit);
+    box-shadow: inset 0 10px 20px rgba(0,0,0,0.2), inset 0 -10px 20px rgba(0,0,0,0.2); /* Inner shadows for subtle lift */
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-unit); /* Consistent gap */
-    margin-top: var(--spacing-unit) * 2;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly larger min-width */
+    gap: var(--spacing-unit);
+    margin-top: calc(var(--spacing-unit) * 2.5);
 }
 
 /* Initial state for scroll-animated elements */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(50px) scale(0.9) translateZ(0); /* More pronounced initial state */
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Bouncier bezier */
 }
 
 /* Final state for scroll-animated elements */
 .animate-on-scroll.visible {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1) translateZ(0);
 }
 
 /* Delay for staggering scroll-animated elements */
@@ -308,15 +352,15 @@ nav {
 
 .about-item {
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: var(--spacing-unit); /* Use spacing unit */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* Smoother transition */
+    padding: var(--spacing-unit);
     border: none;
     box-shadow: none;
 }
 
 .about-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px var(--glass-shadow);
+    transform: translateY(-8px); /* More significant lift */
+    box-shadow: 0 12px 30px var(--glass-shadow), 0 0 15px rgba(0, 230, 230, 0.2); /* Enhanced shadow with subtle glow */
 }
 
 .about-item h3 {
@@ -325,14 +369,14 @@ nav {
 }
 
 .about-item p {
-    font-size: 1em;
-    opacity: 0.8;
+    font-size: 1.05em; /* Slightly smaller for about section clarity */
+    opacity: 0.9;
 }
 
 /* Showcase & Chats Sections */
 .showcase-section, .chats-section {
-    background: var(--dark-bg);
-    padding: 100px var(--spacing-unit); /* More vertical padding */
+    background: transparent; /* Dotted background shows through */
+    padding: 120px var(--spacing-unit);
     color: var(--light-text);
 }
 
@@ -343,8 +387,8 @@ nav {
 
 .showcase-section p, .chats-section p {
     color: var(--subtle-text);
-    font-size: 1em;
-    margin-bottom: var(--spacing-unit) * 2;
+    font-size: 1.05em;
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
 }
 
 .showcase-scroll-container,
@@ -360,9 +404,11 @@ nav {
     max-width: 100%;
     justify-content: flex-start;
     border-radius: var(--border-radius-lg);
-    background: var(--glass-bg); /* Use glass background for container */
+    background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    box-shadow: 0 5px 20px var(--glass-shadow);
+    box-shadow: 0 5px 25px var(--glass-shadow); /* Deeper shadow for containers */
+    padding-bottom: var(--spacing-unit); /* More padding to show bottom of images */
+    perspective: 1000px; /* For potential 3D effects on images */
 }
 
 /* Hide scrollbar */
@@ -377,33 +423,34 @@ nav {
 }
 
 .gallery-item, .chat-item {
-    flex: 0 0 320px; /* Slightly wider images */
-    height: 450px; /* Taller for more impact */
+    flex: 0 0 340px; /* Even wider images */
+    height: 480px; /* Taller for more immersive view */
     object-fit: cover;
     border-radius: var(--border-radius-md);
     scroll-snap-align: center;
-    background: var(--dark-bg); /* Image background can be dark-bg */
-    border: 1px solid rgba(255, 255, 255, 0.08); /* More defined but still subtle border */
-    box-shadow: 0 2px 8px var(--glass-shadow);
-    backdrop-filter: blur(2px); /* Very light blur for images */
+    background: var(--dark-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Slightly more prominent border */
+    box-shadow: 0 2px 10px var(--glass-shadow), 0 0 5px rgba(0, 230, 230, 0.1); /* Subtle initial glow */
+    backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-item:hover, .chat-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(0, 204, 204, 0.2);
+    transform: scale(1.03) translateZ(10px); /* Lift and scale with slight Z-index for depth */
+    box-shadow: 0 10px 30px var(--glass-shadow), 0 0 20px var(--glow-color); /* Stronger glow and shadow */
 }
 
 /* Join Us Section */
 .join-us-section {
     background-color: var(--mid-dark-bg);
-    padding: 100px var(--spacing-unit); /* More vertical padding */
+    padding: 120px var(--spacing-unit);
+    box-shadow: inset 0 10px 20px rgba(0,0,0,0.2), inset 0 -10px 20px rgba(0,0,0,0.2);
 }
 
 .join-us-section p {
-    font-size: 1.2em;
-    margin-bottom: var(--spacing-unit) * 1.5;
+    font-size: 1.25em; /* Larger, more inviting text */
+    margin-bottom: calc(var(--spacing-unit) * 1.8);
 }
 
 /* Footer */
@@ -412,9 +459,10 @@ footer {
     color: var(--subtle-text);
     padding: var(--spacing-unit);
     text-align: center;
-    font-size: 0.9em;
+    font-size: 0.95em;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    font-family: 'Share Tech Mono', monospace; /* Footer text can be tech font */
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 0.5px;
 }
 
 /* Responsive Design for Hamburger Menu */
@@ -466,15 +514,19 @@ footer {
 
     /* General responsive adjustments */
     h1 {
-        font-size: 2.8em;
+        font-size: 3.2em;
     }
 
     h2 {
-        font-size: 2em;
+        font-size: 2.4em;
+    }
+
+    section {
+        padding: 100px var(--spacing-unit);
     }
 
     .hero-content {
-        padding: var(--spacing-unit);
+        padding: var(--spacing-unit) * 1.5;
     }
 
     .hero-content p {
@@ -482,8 +534,8 @@ footer {
     }
 
     .gallery-item, .chat-item {
-        flex: 0 0 280px;
-        height: 400px;
+        flex: 0 0 300px;
+        height: 420px;
     }
 }
 
@@ -493,26 +545,26 @@ footer {
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
     h2 {
-        font-size: 1.6em;
+        font-size: 2em;
     }
     h3 {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 
     .hero-content {
-        padding: var(--spacing-unit) * 0.8;
+        padding: var(--spacing-unit);
     }
 
     .btn-primary, .btn-secondary {
-        padding: 12px 25px;
-        font-size: 0.9em;
+        padding: 14px 28px;
+        font-size: 1em;
     }
 
     .gallery-item, .chat-item {
-        flex: 0 0 240px;
-        height: 350px;
+        flex: 0 0 260px;
+        height: 380px;
     }
 }
