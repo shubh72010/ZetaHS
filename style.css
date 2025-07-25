@@ -1,5 +1,4 @@
 /* Basic Resets & Global Styles */
-/* Share Tech Mono font for a distinct tech/retro feel */
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 :root {
@@ -28,7 +27,7 @@
 }
 
 body {
-    font-family: 'Share Tech Mono', monospace; /* Applied Share Tech Mono here */
+    font-family: 'Share Tech Mono', monospace;
     color: var(--light-text);
     background: var(--dark-bg);
     background-attachment: fixed;
@@ -60,7 +59,7 @@ section {
 h1, h2, h3 {
     color: var(--secondary-color);
     margin-bottom: var(--spacing-unit);
-    font-weight: 600; /* Share Tech Mono is mono-spaced, so weights might not vary as much */
+    font-weight: 600;
 }
 
 h1 {
@@ -86,13 +85,14 @@ p {
     margin-right: auto;
 }
 
+/* Updated Button Transitions */
 .btn-primary, .btn-secondary {
     display: inline-block;
     padding: 14px 28px;
     border-radius: var(--border-radius-md);
     font-weight: 500;
     text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-out, box-shadow 0.3s ease-in-out; /* Smoother transitions */
     border: none;
     cursor: pointer;
     letter-spacing: 0.8px;
@@ -106,8 +106,8 @@ p {
 
 .btn-primary:hover {
     background-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 230, 230, 0.3);
+    transform: translateY(-4px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0, 230, 230, 0.4); /* Stronger glow */
 }
 
 .btn-secondary {
@@ -119,8 +119,8 @@ p {
 .btn-secondary:hover {
     background-color: var(--primary-color);
     color: var(--dark-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 230, 230, 0.3);
+    transform: translateY(-4px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0, 230, 230, 0.4); /* Stronger glow */
 }
 
 /* Frosted Glass Base Style - more subtle */
@@ -154,7 +154,7 @@ nav {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative; /* Needed for absolute positioning of menu */
+    position: relative;
 }
 
 .logo {
@@ -166,7 +166,7 @@ nav {
 
 .nav-links ul {
     list-style: none;
-    display: flex; /* For desktop, show in a row */
+    display: flex;
 }
 
 .nav-links ul li {
@@ -185,9 +185,9 @@ nav {
     transform: translateY(-1px);
 }
 
-/* Hamburger Menu Styling (Hidden by default on large screens) */
+/* Hamburger Menu Styling */
 .hamburger {
-    display: none; /* Hide on desktop */
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     width: 30px;
@@ -196,7 +196,7 @@ nav {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001; /* Above nav links when active */
+    z-index: 1001;
 }
 
 .hamburger .bar {
@@ -207,7 +207,6 @@ nav {
     transition: all 0.3s ease-in-out;
 }
 
-/* Hamburger animation to 'X' */
 .hamburger.active .bar:nth-child(1) {
     transform: translateY(11px) rotate(45deg);
 }
@@ -217,7 +216,6 @@ nav {
 .hamburger.active .bar:nth-child(3) {
     transform: translateY(-11px) rotate(-45deg);
 }
-
 
 /* Hero Section */
 .hero {
@@ -229,6 +227,7 @@ nav {
     padding-top: 80px;
     background: var(--dark-bg);
     position: relative;
+    overflow: hidden; /* To prevent overflow from initial hidden state */
 }
 
 .hero-content {
@@ -242,17 +241,23 @@ nav {
     border: 1px solid var(--glass-border);
 }
 
-.hero-content h1 {
-    font-size: 4.5em;
-    margin-bottom: 25px;
-    text-shadow: none;
+/* Initial state for hero elements before animation */
+.animate-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.hero-content p {
-    font-size: 1.4em;
-    margin-bottom: 40px;
-    opacity: 0.85;
+/* Final state for hero elements after animation */
+.animate-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
+
+/* Delay for staggering hero elements */
+.animate-fade-in.delay-1 { transition-delay: 0.2s; }
+.animate-fade-in.delay-2 { transition-delay: 0.4s; }
+
 
 /* About Section */
 .about-section {
@@ -267,9 +272,29 @@ nav {
     margin-top: 40px;
 }
 
+/* Initial state for scroll-animated elements */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Final state for scroll-animated elements */
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Delay for staggering scroll-animated elements */
+.animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+.animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+.animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+/* Add more delays if you have more items */
+
+
 .about-item {
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Keep existing hover transition */
     padding: 30px;
     border: none;
     box-shadow: none;
@@ -349,12 +374,13 @@ nav {
     box-shadow: 0 2px 8px var(--glass-shadow);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Main transition for these items */
 }
 
+/* Hover effect for gallery/chat items */
 .gallery-item:hover, .chat-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 5px 20px rgba(0, 230, 230, 0.2);
+    transform: scale(1.03); /* Slightly more pronounced scale */
+    box-shadow: 0 8px 25px rgba(0, 230, 230, 0.3); /* Stronger primary color glow */
 }
 
 /* Join Us Section */
@@ -381,33 +407,33 @@ footer {
 /* Responsive Design for Hamburger Menu */
 @media (max-width: 768px) {
     nav ul {
-        display: none; /* Hide desktop nav links by default on smaller screens */
+        display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
-        top: 100%; /* Position below the header */
+        top: 100%;
         left: 0;
-        background: var(--glass-bg); /* Match header's frosted background */
+        background: var(--glass-bg);
         backdrop-filter: blur(var(--blur-strength));
         -webkit-backdrop-filter: blur(var(--blur-strength));
         border-top: 1px solid var(--glass-border);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         padding: 20px 0;
-        transition: transform 0.3s ease-out;
-        transform: translateY(-100%); /* Start off-screen above */
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Add opacity transition */
+        transform: translateY(-100%);
         opacity: 0;
-        pointer-events: none; /* Disable interaction when hidden */
+        pointer-events: none;
     }
 
     nav ul li {
-        margin: 10px 0; /* Stack vertically */
+        margin: 10px 0;
     }
 
     nav ul li a {
         padding: 10px 20px;
-        display: block; /* Make links full width of their container */
+        display: block;
         text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Subtle separator */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     nav ul li:last-child a {
@@ -415,17 +441,17 @@ footer {
     }
 
     .nav-links.active ul {
-        display: flex; /* Show when active */
-        transform: translateY(0); /* Slide into view */
+        display: flex;
+        transform: translateY(0);
         opacity: 1;
-        pointer-events: auto; /* Enable interaction when active */
+        pointer-events: auto;
     }
 
     .hamburger {
-        display: flex; /* Show hamburger button on smaller screens */
+        display: flex;
     }
 
-    /* General responsive adjustments (from previous versions, retained) */
+    /* General responsive adjustments */
     h1 {
         font-size: 3em;
     }
